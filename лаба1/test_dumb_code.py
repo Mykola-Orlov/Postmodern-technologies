@@ -6,6 +6,7 @@ class TestDumbCode(unittest.TestCase):
         self.assertEqual(exponentiation(2, 3), 8)
         self.assertEqual(exponentiation(5, 3), 125)
         self.assertEqual(exponentiation(6, 8), 1679616)
+        self.assertEqual(exponentiation(9, 1), 9)
         self.assertEqual(exponentiation(1, 9), 1)
 
         self.assertFalse(exponentiation(2, 3) == 7)
