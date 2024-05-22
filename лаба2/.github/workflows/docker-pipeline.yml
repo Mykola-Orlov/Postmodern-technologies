@@ -1,8 +1,10 @@
 name: Docker Pipeline
 
 on:
-  push
-
+  push:
+    branches:
+      - lab_docker
+      
 jobs:
   build_and_publish:
     runs-on: ubuntu-latest
