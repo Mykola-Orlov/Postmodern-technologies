@@ -6,7 +6,7 @@ on:
       - lab_docker
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,5 +23,11 @@ jobs:
         file: Dockerfile
         push: true
         tags: ghcr.io/Mykola-Orlov/Postmodern-technologies:latest
+        labels: |
+            org.opencontainers.image.source="https://github.com/${{ github.repository }}/tree/${{ github.ref }}"
+      
+    - name: Run tests
+      run: |
+        docker run ghcr.io/${{ github.repository_owner }}/postmodern-technologies:latest pytest
 env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
